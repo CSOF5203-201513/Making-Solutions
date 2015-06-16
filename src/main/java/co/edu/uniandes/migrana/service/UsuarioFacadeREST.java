@@ -3,6 +3,7 @@ package co.edu.uniandes.migrana.service;
 import co.edu.uniandes.migrana.dap.UsuarioDataAccess;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -32,6 +33,24 @@ public class UsuarioFacadeREST {
 		}
 		
 		return response;
-	}	
+	}
+        
+        @GET	
+	@Path("/getUserById/{Id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getUserById(@PathParam ("numeroIdentificacion") String numeroIdentificacion) throws Exception{        
+	Response response = null;
+		try{		
+                        response = Response.ok(UsuarioDataAccess.GetUsuariosById(numeroIdentificacion)).build();
+		}
+		catch(Exception ex){
+			response = Response.status(500).entity(ex.toString()).build();
+		}
+		finally{
+
+		}
+		
+		return response;            
+        }
 	
 }

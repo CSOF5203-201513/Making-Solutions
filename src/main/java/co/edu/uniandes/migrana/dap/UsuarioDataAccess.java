@@ -62,6 +62,30 @@ public class UsuarioDataAccess {
         
         return resultado;
     } 
+    
+    public static String GetUsuariosById(String numeroIdentificacion) throws Exception{
+        Connection conn = GetConnection();
+        ToJSON converter = new ToJSON();
+        JSONArray json = new JSONArray();
+        String resultado = null;
+        Response response = null;
+        
+        sql = "SELECT nombre_usuario, fecha_nacimiento, genero, numero_telefono, numero_identificacion FROM usuario Where numero_identificacion = ?";
+        query = conn.prepareStatement(sql);
+        query.setString(1, numeroIdentificacion);
+        rs = query.executeQuery();
+        json = converter.toJSONArray(rs);
+        resultado = json.toString();
+        if (rs != null) 
+            rs.close();
+        if (query != null) 
+            query.close();
+        
+        return resultado;
+    } 
+    
+    
+    
             
     
 }
