@@ -1,0 +1,9 @@
+co\edu\uniandes\migrana\data\Audio.class
+co\edu\uniandes\migrana\service\UsuarioFacadeREST.class
+co\edu\uniandes\migrana\dap\UsuarioDataAccess.class
+co\edu\uniandes\migrana\data\Pregunta.class
+co\edu\uniandes\migrana\data\Usuario.class
+co\edu\uniandes\migrana\data\Respuesta.class
+co\edu\uniandes\migrana\data\Registro.class
+co\edu\uniandes\migrana\util\ToJSON.class
+co\edu\uniandes\migrana\data\RespuestaRegistro.class
